@@ -1,63 +1,78 @@
-# 💻 Computer Science Portfolio  
+# CSharpCalculatorUI
 
-Welcome to my **Computer Science Portfolio**, a collection of projects demonstrating my skills in software development, algorithms, data science, and web development. This repository serves as a central hub to showcase my work to potential employers.  
+A simple **WinForms-based calculator** written in C# that supports basic arithmetic operations, **floating-point numbers**, and a **custom algebraic expression parser**.
 
----
+## Features
 
-## 📂 Projects Overview  
+* Add, subtract, multiply, and divide numbers
+* Handle **floating-point numbers** with decimals
+* Evaluate full expressions like `12.5 + 3.2 * 4`
+* **Custom algebraic parser** that respects operator precedence, parentheses, and negative numbers
+* Prevent invalid operations like division by zero or trailing operators
+* Clear output and start a new calculation easily
+* Decimal support ensuring only one decimal per number
+* Fixed-size window to prevent resizing
+* Intuitive button layout for easy use
 
-Below is a curated list of projects, with links to their respective repositories and highlights of the technologies used.  
+## How It Works
 
-### 🔹 [C# To Do List](https://github.com/titansrule3035/solo-comp-sci-portfolio/tree/main/projects/CSharpToDoList)  
+1. The calculator allows the user to input numbers and operators using buttons on the form.
+2. Expressions are constructed in the **text box** as the user clicks buttons.
+3. When the **equals** button is pressed:
 
-**Description:** A simple C# "To-Do List" console application that stores data into a text file.  
-**Technologies:** C# .NET Framework, Microsoft Cryptography  
-**Highlights:** Filestream and cryptography, the save file is obfuscated and then encrypted to prevent outside sources from reading/writing to sensitive data.  
+   * The expression is validated to ensure it does not end with an operator.
+   * The **custom parser** tokenizes the expression, converts it to Reverse Polish Notation (RPN), and evaluates it using a stack-based algorithm.
+   * The result is returned as a `double` and displayed in the textbox.
+4. The **decimal button** ensures that each number can only have one decimal point.
+5. Implied multiplication is automatically handled (e.g., `2(3+4)` becomes `2*(3+4)`).
 
-### 🔹 [C# Calculator UI](https://github.com/titansrule3035/solo-comp-sci-portfolio/tree/main/projects/CSharpCalculatorUI)  
+### Example
 
-**Description:** A WinForms-based calculator application that supports full expression evaluation and floating-point numbers.  
-**Technologies:** C# .NET Framework, WinForms  
-**Highlights:** Supports addition, subtraction, multiplication, division, decimal numbers, and full expression parsing with operator precedence, using **a custom, in-house, algebraic expression parser**. The UI includes a fixed-size window and an intuitive button layout.  
+A user can input:
 
-### 🔹 [Unity C# Inventory System Demo](https://github.com/titansrule3035/solo-comp-sci-portfolio/tree/main/projects/unity-c-sharp-inventory-system-test)    
+```
+12.5 + 3 * 2.1
+```
 
-**Description:** A demo "game" project in Unity showcasing a complete inventory system, dialogue system, debug system, and their interactions within a closed space.  
-**Technologies:** C#, .NET Framework, Unity Engine, INK API  
-**Highlights:** Easy-to-use inventory system with grab-and-drop based item functionality, item stacking, and item usage. The dialogue system is powered by the INK API, allowing for branching narratives and player choices. The debug system provides real-time feedback on game state and player actions.
+The calculator will correctly evaluate and display:
 
-You can also find many other, smaller projects in the projects folder of this repo. These are things that still demonstrate my skills in everyday Computer Science, but are a bit too niche to highlight.
+```
+18.8
+```
 
-*(A compiled build of each raw project can be found [here](https://github.com/titansrule3035/solo-comp-sci-portfolio/releases).)*
+### Example with Parentheses and Exponent
 
----  
+A user can input a complex expression like:
 
-## 🛠 Skills Demonstrated
+```
+(5 + 3) * 2 - 4 / 2 ^ 2
+```
 
-Throughout all of the projects in this portfolio, I’ve applied skills in:
+The custom parser evaluates this correctly as `15.0`, respecting parentheses, operator precedence, and exponents.
 
-* **Programming Languages:** C#, Python
-* **Tools & Platforms:** Git, GitHub, Windows 11, .NET 9, Unity Engine, INK API
-* **Computer Science Principles & Applications:**
+## Getting Started
 
-  * **C# To-Do List** → File I/O with `FileStream`, text-based persistence, security with **cryptography and obfuscation**, error handling, and data protection.
-  * **C# Calculator UI** → **Custom expression parsing algorithm**, operator precedence handling, floating-point arithmetic, UI/UX design with WinForms, and robustness through input validation.
-  * **Unity C# Inventory System Demo** → Object-Oriented Design, **inventory and item management system**, branching narrative integration with **INK API**, modular architecture, **event-driven programming**, and real-time debugging systems.
-* **Core Competencies:** Algorithm Design and Data Structures, Software Design & Modularity, Security & Cryptography, Input Validation & Error Handling, Human-Computer Interaction, Object-Oriented Programming, Software Reliability and Robustness, System Programming Concepts.
+### Prerequisites
 
----
+* [Visual Studio](https://visualstudio.microsoft.com/) or any C# IDE that supports WinForms
+* [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) installed
 
-## 📈 GitHub Stats  
+### Running the Application
 
-![Portfolio Stats](https://github-readme-stats.vercel.app/api?username=titansrule3035\&show_icons=true\&theme=radical)  
+1. Open the solution in Visual Studio.
+2. Build the project (`Ctrl+Shift+B`).
+3. Run the application (`F5`) and the calculator form will appear.
 
----  
+## Usage
 
-## 🌐 Connect with Me  
+* Click number buttons (`0-9`) to input numbers.
+* Click operator buttons (`+ - * / ^`) to perform operations.
+* Use the decimal point button `.` to enter floating-point numbers.
+* Use parentheses `(` and `)` for grouping.
+* Press `=` to evaluate the expression using the custom parser.
+* Press `C` to clear the current calculation.
+* Delete or Backspace removes the last character.
 
-* [LinkedIn](https://www.linkedin.com/in/joseph-rodriguez-006b4b303)  
-* Email: [jorod3035@gmail.com](mailto:jorod3035@gmail.com)  
+## License
 
----  
-
-> This repository is maintained as a showcase of my professional work for potential employers. Feel free to explore the projects and reach out if you’d like to discuss collaboration or opportunities!
+This project is licensed under the MIT License in its parent directory.
